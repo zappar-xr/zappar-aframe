@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <a-scene device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <img id="camera-source" src="../../assets/jest/camera-sources/face-target.jpg"/>
+            <img id="target-image" src="../../assets/planes/target.jpg"/>
+            <img id="scene-image" src="../../assets/planes/scene.jpg"/>
+            <img id="camera-image" src="../../assets/planes/camera.jpg"/>
+        </a-assets>
+
+
+        <a-plane position="0 -0.5 -5" alpha height="0.25" src="#scene-image"></a-plane>
+        <a-entity zappar-face id="anchor">
+            <a-plane height="0.25" alpha src="#target-image"></a-plane>
+        </a-entity>
+
+        <a-entity camera zappar-camera="camera-source: #camera-source;">
+             <a-plane position="0 0 -5"  alpha height="0.25" src="#camera-image"></a-plane>
+        </a-entity>
+    </a-scene>
+</body>
+<script>
+    const tracker = document.getElementById("anchor");
+
+    tracker.addEventListener("zappar-visible", () => {
+        console.log("Anchor is visible");
+    });
+</script>
+</html>

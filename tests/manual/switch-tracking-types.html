@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #zappar-switch-ui {
+            position: absolute;
+            bottom: 30px;
+            width: 200px;
+            left: calc(50% - 100px);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            /* Disable text selection */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a-scene>
+        <!-- Ask user for camera permissions, display some text if permission is denied -->
+        <a-entity zappar-permissions-ui id="permissions">
+            <!-- Remove the text entity to use Zappar's default permission denied UI -->
+            <a-entity text="value: Please reload the page, accepting the camera permissions." position="0 0 -2"></a-entity>
+        </a-entity>
+
+
+
+        <!-- Browser Compatibility -->
+        <a-entity zappar-compatibility-ui id="compatibility">
+            <!-- Remove the text entity to use Zappar's default compatibility UI -->
+            <a-entity text="value: Browser incompatible!" position="0 0 -2"></a-entity>
+        </a-entity>
+        <a-entity camera zappar-camera="userFacing: true;" id="faceTrackerCamera"></a-entity>
+
+
+        <a-entity id="scene1" visible="true">
+            <a-entity zappar-face id="face-anchor1">
+                <a-box></a-box>
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="scene2" visible="false">
+            <a-entity zappar-instant="enabled: false; placement-mode: true;" id="instant-tracker">
+                <a-box color="red"></a-box>
+            </a-entity>
+        </a-entity>
+
+    </a-scene>
+
+    <div id="zappar-switch-ui">Tap here to switch tracking type</div>
+
+    <script>
+        let currentSceneIsFaceTracking = true;
+        // Listen for when the user taps the UI
+        const switchUI = document.getElementById("zappar-switch-ui");
+        switchUI.addEventListener("click", function() {
+            if(currentSceneIsFaceTracking){
+                instantTrackingScene();
+            } else{
+                faceTrackingScene();
+            }
+            currentSceneIsFaceTracking = !currentSceneIsFaceTracking;
+        });
+
+
+
+        function faceTrackingScene(){
+            document.getElementById('scene2').setAttribute('visible', 'false');
+            document.getElementById('scene1').setAttribute('visible', 'true');
+            document.getElementById('face-anchor1').setAttribute("zappar-face",  "enabled: true");
+            document.getElementById('instant-tracker').setAttribute("zappar-instant",  "enabled: false; placement-mode: true;");
+
+            document.getElementById('faceTrackerCamera').setAttribute("zappar-camera",  "userFacing: true;");
+        }
+
+        function instantTrackingScene(){
+            document.getElementById('scene1').setAttribute('visible', 'false');
+            document.getElementById('scene2').setAttribute('visible', 'true');
+            document.getElementById('face-anchor1').setAttribute("zappar-face",  "enabled: false");
+
+            // Toggle placement mode as needed to put the object down.
+            document.getElementById('instant-tracker').setAttribute("zappar-instant",  "enabled: true; placement-mode: true;");
+
+            document.getElementById('faceTrackerCamera').setAttribute("zappar-camera",  "userFacing: false;");
+        }
+
+    </script>
+
+
+
+</body>
+</html>

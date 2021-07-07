@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <a-scene>
+        <!-- Ask user for camera permissions, display some text if permission is denied -->
+        <a-entity zappar-permissions-ui id="permissions">
+            <!-- Remove the text entity to use Zappar's default permission denied UI -->
+            <a-entity text="value: Please reload the page, accepting the camera permissions." position="0 0 -2"></a-entity>
+        </a-entity>
+
+
+
+        <!-- Browser Compatibility -->
+        <a-entity zappar-compatibility-ui id="compatibility">
+            <!-- Remove the text entity to use Zappar's default compatibility UI -->
+            <a-entity text="value: Browser incompatible!" position="0 0 -2"></a-entity>
+        </a-entity>
+
+
+        <a-assets>
+            <img id="camera-source" src="../assets/jest/camera-sources/face-target.jpg"/>
+        </a-assets>
+
+        <a-entity camera zappar-camera="camera-source: #camera-source;">
+
+        </a-entity>
+
+
+    </a-scene>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "lib": ["es2015", "dom"],
+    "strict": false,
+    "types": [ "@types/aframe", "jest", "puppeteer", "ts-jest", "jest-environment-puppeteer"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}

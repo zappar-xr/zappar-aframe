@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <a-scene>
+            <!-- Ask user for camera permissions, display some text if permission is denied -->
+            <a-entity zappar-permissions-ui id="permissions">
+                <!-- Remove the text entity to use Zappar's default permission denied UI -->
+                <a-entity text="value: Please reload the page, accepting the camera permissions." position="0 0 -2"></a-entity>
+            </a-entity>
+
+
+
+            <!-- Browser Compatibility -->
+            <a-entity zappar-compatibility-ui id="compatibility">
+                <!-- Remove the text entity to use Zappar's default compatibility UI -->
+                <a-entity text="value: Browser incompatible!" position="0 0 -2"></a-entity>
+            </a-entity>
+            <a-assets>
+                <img id="target-image" src="../assets/planes/target.jpg"/>
+                <img id="scene-image" src="../assets/planes/scene.jpg"/>
+                <img id="camera-image" src="../assets/planes/camera.jpg"/>
+                <img id="face-mesh-template" src="../assets/textures/faceMeshTemplate.png"/>
+            </a-assets>
+
+            <a-entity camera zappar-camera="pose-anchor-origin: #face-anchor; pose-mode: default; userFacing: true;">
+                <a-plane position="0 0 -5" height="0.25" src="#camera-image"></a-plane>
+            </a-entity>
+
+            <a-plane position="0 -0.5 -5" height="0.25" src="#scene-image"></a-plane>
+            <a-entity zappar-face id="face-anchor">
+                <a-plane height="0.25" src="#target-image"></a-plane>
+                <a-entity geometry="primitive: face-mesh; face: #face-anchor" material="src:#face-mesh-template; transparent: true;"></a-entity>
+            </a-entity>
+
+        </a-scene>
+    </body>
+</html>
