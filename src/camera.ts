@@ -48,6 +48,7 @@ const camera = AFRAME.registerComponent("zappar-camera", {
     const { renderer } = sceneEl;
     ZapparThree.glContextSet(renderer.getContext());
     scene.background = this.system.camera.backgroundTexture;
+    this.hadFirstFrame = false;
   },
   update(oldData) {
     const { camera } = this.system;
@@ -115,6 +116,10 @@ const camera = AFRAME.registerComponent("zappar-camera", {
     }
 
     this.system.camera.updateFrame(renderer);
+    if (!this.hadFirstFrame && camera.pipeline.frameNumber() > 0) {
+      this.hadFirstFrame = true;
+      this.el.emit("first-frame", {});
+    }
 
     this.el.object3DMap.camera.matrixAutoUpdate = false;
     this.el.object3DMap.camera.projectionMatrix = camera.projectionMatrix;

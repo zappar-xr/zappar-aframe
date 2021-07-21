@@ -5,6 +5,7 @@
 import baseConfig from "./webpack.base.config";
 import "webpack-dev-server";
 
+const fetch = require("node-fetch");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");

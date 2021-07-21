@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.29 ] - 2021-07-21
+
+### Added
+
+- `first-frame` event for `zappar-camera` and relevant documentation to `README.md`.
+
 ## [0.3.28 ] - 2021-07-07
 
 - Updated dependencies

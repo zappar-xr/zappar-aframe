@@ -43,14 +43,15 @@ You may also be interested in:
       * [Setting up the Camera](#setting-up-the-camera)
          * [User Facing Camera](#user-facing-camera)
          * [Mirroring the Camera](#mirroring-the-camera)
+            * [Events](#events)
          * [Realtime Camera-based Reflections](#realtime-camera-based-reflections)
          * [Camera Pose](#camera-pose)
       * [Tracking](#tracking)
          * [Image Tracking](#image-tracking)
             * [Target File](#target-file)
-            * [Events](#events)
-         * [Face Tracking](#face-tracking)
             * [Events](#events-1)
+         * [Face Tracking](#face-tracking)
+            * [Events](#events-2)
          * [Face Landmarks](#face-landmarks)
          * [Face Mesh](#face-mesh)
          * [Head Masking](#head-masking)
@@ -58,7 +59,7 @@ You may also be interested in:
       * [Disabling tracking](#disabling-tracking)
       * [Links and Resources](#links-and-resources)
 
-<!-- Added by: zapparadmin, at: Wed Jul  7 14:50:20 BST 2021 -->
+<!-- Added by: zapparadmin, at: Wed Jul 21 13:12:35 BST 2021 -->
 
 <!--te-->
 </details>
@@ -90,7 +91,7 @@ You can use this library by downloading a standalone zip containing the necessar
 ### Standalone Download
 
 Download the bundle from this link:
-<https://libs.zappar.com/zappar-aframe/0.3.28/zappar-aframe.zip>
+<https://libs.zappar.com/zappar-aframe/0.3.29/zappar-aframe.zip>
 
 Unzip into your web project and reference from your HTML like this:
 
@@ -103,7 +104,7 @@ Unzip into your web project and reference from your HTML like this:
 Reference the zappar.js library from your HTML like this:
 
 ```html
-<script src="https://libs.zappar.com/zappar-aframe/0.3.28/zappar-aframe.js"></script>
+<script src="https://libs.zappar.com/zappar-aframe/0.3.29/zappar-aframe.js"></script>
 ```
 
 ### NPM Webpack Module
@@ -307,6 +308,27 @@ The values you can pass to `user-camera-mirror-mode` are:
 - `no-mirror`: no mirroring of content or camera view is performed
 
 There's also a `rear-camera-mirror-mode` parameter that takes the same values should you want to mirror the rear-facing camera. The default `rear-camera-mirror-mode` is `no-mirror`.
+
+
+#### Events
+
+The `zappar-camera` component will emit the following event on the element it's attached to:
+
+- `first-frame` - emitted when the first camera frame is processed.
+
+Here's an example of using these events:
+
+```html
+<a-camera zappar-camera id="zappar-camera">
+</a-camera>
+
+<script>
+    let camera = document.getElementById("zappar-camera");
+    camera.addEventListener("first-frame", () => {
+        console.log("The camera is ready!");
+    });
+</script>
+```
 
 ### Realtime Camera-based Reflections
 
@@ -539,8 +561,6 @@ You may disable the trackers on-the-go using the ``enabled`` parameter:
 <a-entity zappar-image="target: #target-file; enabled: false" id="anchor">
 </a-entity>
 ```
-
-CHANGE LINKS
 
 ## Links and Resources
 
