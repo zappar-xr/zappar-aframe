@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "^4.26.1",
     "@zappar/jest-console-logs": "^1.0.0",
     "aframe": "^1.2.0",
-    "chokidar": "^2.1.8",
+    "chokidar": "^3.5.3",
     "copy-webpack-plugin": "^9.0.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
