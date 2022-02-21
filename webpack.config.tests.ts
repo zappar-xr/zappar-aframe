@@ -10,10 +10,8 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { readdirSync, readFile, writeFile } = require("fs");
-const chokidar = require("chokidar");
 const WebpackCdnPlugin = require("webpack-cdn-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-// const baseConfig = require("./webpack.base.config");
 const getStandaloneVersions = require("./standalone-versions");
 
 export default async (env) => {
@@ -194,18 +192,12 @@ export default async (env) => {
   baseConfig.plugins.push(injectPlugin);
 
   (baseConfig as any).devServer = {
-    contentBase: "./test-dist",
+    static: "./test-dist",
     https: true,
     host: "0.0.0.0",
     open: false,
     hot: true,
     port: 8081,
-    // Hot reload html
-    before(app, server) {
-      chokidar.watch(["./tests/**/*.html"]).on("all", () => {
-        server.sockWrite(server.sockets, "content-changed");
-      });
-    },
   };
 
   baseConfig.output.path = path.resolve(__dirname, "test-dist");

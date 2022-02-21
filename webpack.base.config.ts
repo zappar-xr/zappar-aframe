@@ -21,7 +21,7 @@ const config: webpack.Configuration & extend = {
   },
   plugins: [],
   devServer: {
-    contentBase: "./dist",
+    static: "./dist",
   },
   module: {
     rules: [

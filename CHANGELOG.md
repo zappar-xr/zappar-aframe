@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.30 ] - 2022-02-21
+
+- Updated dependencies
+
 ## [0.3.29 ] - 2021-07-21
 
 ### Added

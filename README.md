@@ -59,7 +59,7 @@ You may also be interested in:
       * [Disabling tracking](#disabling-tracking)
       * [Links and Resources](#links-and-resources)
 
-<!-- Added by: zapparadmin, at: Wed Jul 21 13:12:35 BST 2021 -->
+<!-- Added by: zapparadmin, at: Mon Feb 21 13:40:00 GMT 2022 -->
 
 <!--te-->
 </details>
@@ -91,7 +91,7 @@ You can use this library by downloading a standalone zip containing the necessar
 ### Standalone Download
 
 Download the bundle from this link:
-<https://libs.zappar.com/zappar-aframe/0.3.29/zappar-aframe.zip>
+<https://libs.zappar.com/zappar-aframe/0.3.30/zappar-aframe.zip>
 
 Unzip into your web project and reference from your HTML like this:
 
@@ -104,7 +104,7 @@ Unzip into your web project and reference from your HTML like this:
 Reference the zappar.js library from your HTML like this:
 
 ```html
-<script src="https://libs.zappar.com/zappar-aframe/0.3.29/zappar-aframe.js"></script>
+<script src="https://libs.zappar.com/zappar-aframe/0.3.30/zappar-aframe.js"></script>
 ```
 
 ### NPM Webpack Module
@@ -461,7 +461,7 @@ Here's an example of using these events:
 
 <script>
 
-let myFaceTracker = document.getElementById("my-image-tracker");
+let myFaceTracker = document.getElementById("my-face-tracker");
 
 myFaceTracker.addEventListener("zappar-visible", () => {
   console.log("Face has become visible");
