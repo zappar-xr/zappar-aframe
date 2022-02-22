@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.31 ] - 2022-02-21
+
+- Support for A-Frame@1.2.0
+
 ## [0.3.30 ] - 2022-02-21
 
 - Updated dependencies
