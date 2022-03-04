@@ -112,7 +112,7 @@ const camera = AFRAME.registerComponent("zappar-camera", {
       const { components } = this.data.poseAnchorOrigin;
       if (components["zappar-face"]) camera.poseAnchorOrigin = components["zappar-face"].trackerGroup.currentAnchor;
       else if (components["zappar-image"]) camera.poseAnchorOrigin = components["zappar-image"].trackerGroup.currentAnchor;
-      else if (components["zappar-instant"]) camera.poseAnchorOrigin = components["zappar-instant"].trackerGroup.currentAnchor;
+      else if (components["zappar-instant"]) camera.poseAnchorOrigin = components["zappar-instant"].trackerGroup.instantTracker.anchor;
     }
 
     this.system.camera.updateFrame(renderer);

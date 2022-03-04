@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.32 ] - 2022-03-04
+
+### Fixed
+
+- Anchor origin setter for instant tracking.
+
 ## [0.3.31 ] - 2022-02-21
 
 - Support for A-Frame@1.2.0
