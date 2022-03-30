@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.33] - 2022-02-30
+
+### Fixed
+
+- Addressed texture encoding issues for the camera background texture with recent three.js versions.
+
 ## [0.3.32 ] - 2022-03-04
 
 ### Fixed
