@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.35] - 2022-04-05
+
+## Fixed
+
+- Fixed a `Uncaught TypeError: Cannot read properties of undefined (reading 'material')` error from the zappar-environment-map remove method [#59](https://github.com/zappar-xr/zappar-aframe/pull/59)
+
 ## [0.3.34] - 2022-04-05
 
 ## Added

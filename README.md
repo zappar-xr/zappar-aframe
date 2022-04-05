@@ -59,7 +59,7 @@ You may also be interested in:
       * [Disabling tracking](#disabling-tracking)
       * [Links and Resources](#links-and-resources)
 
-<!-- Added by: zapparadmin, at: Tue Apr  5 16:37:42 BST 2022 -->
+<!-- Added by: zapparadmin, at: Tue Apr  5 19:09:37 BST 2022 -->
 
 <!--te-->
 </details>
@@ -91,7 +91,7 @@ You can use this library by downloading a standalone zip containing the necessar
 ### Standalone Download
 
 Download the bundle from this link:
-<https://libs.zappar.com/zappar-aframe/0.3.34/zappar-aframe.zip>
+<https://libs.zappar.com/zappar-aframe/0.3.35/zappar-aframe.zip>
 
 Unzip into your web project and reference from your HTML like this:
 
@@ -104,7 +104,7 @@ Unzip into your web project and reference from your HTML like this:
 Reference the zappar.js library from your HTML like this:
 
 ```html
-<script src="https://libs.zappar.com/zappar-aframe/0.3.34/zappar-aframe.js"></script>
+<script src="https://libs.zappar.com/zappar-aframe/0.3.35/zappar-aframe.js"></script>
 ```
 
 ### NPM Webpack Module

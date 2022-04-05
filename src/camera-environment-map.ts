@@ -27,6 +27,6 @@ export default AFRAME.registerComponent("zappar-environment-map", {
     const system = document.querySelector("a-scene").systems["zappar-camera"] as any;
     // eslint-disable-next-line no-underscore-dangle
     system.unregisterForCallbacks(this._frameUpdate);
-    this.el.omponents.material.material.envMap.dipose();
+    this.el.components.material.material.envMap.dispose();
   },
 });
