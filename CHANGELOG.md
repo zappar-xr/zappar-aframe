@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.34] - 2022-04-05
+
+## Added
+
+- `anchorPoseOffset` setter for `zappar-instant` entity. This defaults to `0 0 -5`.
+
 ## [0.3.33] - 2022-02-30
 
 ### Fixed

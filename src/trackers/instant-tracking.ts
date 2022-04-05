@@ -5,6 +5,7 @@ export default AFRAME.registerComponent("zappar-instant", {
   schema: {
     placementMode: { type: "boolean", default: false },
     enabled: { type: "boolean", default: true },
+    anchorPoseOffset: { type: "vec3", default: { x: 0, y: 0, z: -5 } },
   },
   update(oldData) {
     if (this.data.enabled !== oldData.enabled) {
@@ -13,7 +14,6 @@ export default AFRAME.registerComponent("zappar-instant", {
   },
   init() {
     const { el } = this;
-
     const system = document.querySelector("a-scene").systems["zappar-camera"] as any;
     const { camera } = system;
     const scene = document.querySelector("a-scene").object3D;
@@ -26,7 +26,8 @@ export default AFRAME.registerComponent("zappar-instant", {
     system.registerForCallbacks(
       // eslint-disable-next-line no-underscore-dangle
       (this._frameUpdate = () => {
-        if (this.data.placementMode) instantTracker.setAnchorPoseFromCameraOffset(0, 0, -5);
+        const { x, y, z } = this.data.anchorPoseOffset;
+        if (this.data.placementMode) instantTracker.setAnchorPoseFromCameraOffset(x, y, z);
         el.object3D.matrix = this.trackerGroup.matrix;
       })
     );
