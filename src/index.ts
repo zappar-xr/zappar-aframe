@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
 import { LogLevel, setLogLevel } from "@zappar/zappar-threejs-for-aframe";
+import * as ZapparThreeForAFrame from "@zappar/zappar-threejs-for-aframe";
+
 import { VERSION } from "./version";
 
 import * as camera from "./camera";
@@ -28,4 +30,5 @@ export {
   environment_map,
   LogLevel,
   setLogLevel,
+  ZapparThreeForAFrame,
 };

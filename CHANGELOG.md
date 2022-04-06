@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.36] - 2022-04-06
+
+## Added
+
+- Exported `@zappar/zappar-threejs-for-aframe` as `ZapparThreeForAFrame`.
+
 ## [0.3.35] - 2022-04-05
 
 ## Fixed
