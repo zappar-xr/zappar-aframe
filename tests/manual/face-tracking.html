@@ -4,17 +4,22 @@
         <meta charset="utf-8" />
         <title><%= htmlWebpackPlugin.options.title %></title>
         <style>
-            html,
-            body {
+            html, body {
+                width: 100%;
+                height: 100%;
                 margin: 0;
                 padding: 0;
+            }
+            canvas {
                 width: 100%;
                 height: 100%;
             }
+
         </style>
     </head>
 
     <body>
+
         <a-scene>
             <!-- Ask user for camera permissions, display some text if permission is denied -->
             <a-entity zappar-permissions-ui id="permissions">
@@ -36,7 +41,7 @@
                 <img id="face-mesh-template" src="../assets/textures/faceMeshTemplate.png"/>
             </a-assets>
 
-            <a-entity camera zappar-camera="pose-anchor-origin: #face-anchor; pose-mode: default; userFacing: true;">
+            <a-entity id="zappar-camera" camera zappar-camera="pose-anchor-origin: #face-anchor; pose-mode: default; userFacing: true;">
                 <a-plane position="0 0 -5" height="0.25" src="#camera-image"></a-plane>
             </a-entity>
 
@@ -47,5 +52,7 @@
             </a-entity>
 
         </a-scene>
+
+
     </body>
 </html>

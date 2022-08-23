@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.0.0] - 2022-08-23
+
+### Added
+
+- Greatly improved instant tracking.
+- Introduced `SequenceSource` and pipeline functions to record and playback sequences of camera+motion data.
+- Added support for curved tracking.
+- Added support for fetching image element containing target image's embedded preview image.
+- Improved GL state management.
+
+### Changed
+
+- Migrated to Webpack 5 workers.
+
+### **Breaking:**
+
+- Dropped support for webpack 4.
+
 ## [0.3.36] - 2022-04-06
 
 ## Added

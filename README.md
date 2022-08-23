@@ -49,6 +49,7 @@ You may also be interested in:
       * [Tracking](#tracking)
          * [Image Tracking](#image-tracking)
             * [Target File](#target-file)
+            * [Image Target Preview Mesh](#image-target-preview-mesh)
             * [Events](#events-1)
          * [Face Tracking](#face-tracking)
             * [Events](#events-2)
@@ -59,7 +60,7 @@ You may also be interested in:
       * [Disabling tracking](#disabling-tracking)
       * [Links and Resources](#links-and-resources)
 
-<!-- Added by: zapparadmin, at: Wed Apr  6 12:30:36 BST 2022 -->
+<!-- Added by: zapparadmin, at: Tue Aug 23 14:35:05 BST 2022 -->
 
 <!--te-->
 </details>
@@ -91,7 +92,7 @@ You can use this library by downloading a standalone zip containing the necessar
 ### Standalone Download
 
 Download the bundle from this link:
-<https://libs.zappar.com/zappar-aframe/0.3.36/zappar-aframe.zip>
+<https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.zip>
 
 Unzip into your web project and reference from your HTML like this:
 
@@ -104,7 +105,7 @@ Unzip into your web project and reference from your HTML like this:
 Reference the zappar.js library from your HTML like this:
 
 ```html
-<script src="https://libs.zappar.com/zappar-aframe/0.3.36/zappar-aframe.js"></script>
+<script src="https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js"></script>
 ```
 
 ### NPM Webpack Module
@@ -121,24 +122,7 @@ Then import the library into your JavaScript or TypeScript files:
 import * as ZapparAFrame from "@zappar/zappar-aframe";
 ```
 
-The final step is to add this necessary entry to your webpack `rules`:
-
-```ts
-module.exports = {
-  //...
-  module: {
-    rules: [
-      //...
-      {
-        test: /zcv\.wasm$/,
-        type: "javascript/auto",
-        loader: "file-loader"
-      }
-      //...
-    ]
-  }
-};
-```
+Please note - This library supports Webpack 5 and later.
 
 ## Overview
 
@@ -396,6 +380,18 @@ The resulting file can be loaded into an A-Frame as an asset and its ID passed a
 </a-assets>
 <a-entity zappar-image="target: #target-file">
   <!-- PLACE CONTENT TO APPEAR ON THE IMAGE HERE -->
+</a-entity>
+```
+
+#### Image Target Preview Mesh
+
+In addition to tracking the center of the target image using `zappar-image`, the Zappar library provides a `target-image-preview` entity. This is a mesh which will fit to the target image and use it's texture as a material.
+
+To use a target image preview mesh, create an entity within your `zappar-image` entity and use the `target-image-preview` primitive type, like this:
+
+```html
+<a-entity zappar-image="target: #target-file" id="anchor">
+    <a-entity target-image-preview="anchor: #anchor;"></a-entity>
 </a-entity>
 ```
 

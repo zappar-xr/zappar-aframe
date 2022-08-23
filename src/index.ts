@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
-import { LogLevel, setLogLevel } from "@zappar/zappar-threejs-for-aframe";
+import { LogLevel, setLogLevel, SequenceSource } from "@zappar/zappar-threejs-for-aframe";
 import * as ZapparThreeForAFrame from "@zappar/zappar-threejs-for-aframe";
-
 import { VERSION } from "./version";
 
 import * as camera from "./camera";
@@ -14,6 +13,7 @@ import * as face_landmark from "./trackers/face-landmark";
 import * as permission_ui from "./permissions";
 import * as compatibility_ui from "./compatibility";
 import * as environment_map from "./camera-environment-map";
+import * as image_preview from "./target-image-preview-mesh";
 
 console.log(`Zappar for A-Frame v${VERSION}`);
 
@@ -31,4 +31,6 @@ export {
   LogLevel,
   setLogLevel,
   ZapparThreeForAFrame,
+  SequenceSource,
+  image_preview,
 };
