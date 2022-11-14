@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.1] - 2022-11-14
+
+### Changed
+
+- Updated `@zappar/zappar-threejs-for-aframe"`.
+
 ## [2.0.0] - 2022-08-23
 
 ### Added
